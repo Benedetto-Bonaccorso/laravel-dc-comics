@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100);
             $table->text('description')->nullable();
-            $table->string('src')->nullable();
-            $table->string('cooking_time', 10)->nullable();
-            $table->string('type')->nullable();
-            $table->string('weight', 10)->nullable();
+            $table->string('thumb')->nullable();
+            $table->string('price', 10)->nullable();
+            $table->string('series', 100)->nullable();
+            $table->date('sale_date', 10)->nullable();
+            $table->string('type', 100)->nullable();
             $table->timestamps();
         });
     }
