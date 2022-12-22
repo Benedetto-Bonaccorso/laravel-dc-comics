@@ -17,16 +17,17 @@ class ComicSeeder extends Seeder{
 
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 10; $i++) {
-        $Comic = new Comic();
-        $Comic->title = $faker->randomElement(['aaaaa', 'bbbb', 'ccc', 'dd', 'e']);
-        $Comic->description = $faker->randomElement(['aaaaa', 'bbbb', 'ccc', 'dd', 'e']);
-        $Comic->thumb = $faker->randomElement(['aaaaa', 'bbbb', 'ccc', 'dd', 'e']);
-        $Comic->price = $faker->time();
-        $Comic->series = $faker->numberBetween(2, 10);
-        $Comic->sale_date = $faker->numberBetween(2, 10);
-        $Comic->type = $faker->numberBetween(2, 9);
-        $Comic->save();
-    }
+        $comics=config('comicslist');
+        foreach ($comics as $comic) {
+            $comic = new Comic();
+            $comic->title = $comic["title"];
+            $comic->description = $comic["description"];
+            $comic->thumb = $comic["thumb"];
+            $comic->price = $comic["price"];
+            $comic->series = $comic["series"];
+            $comic->sale_date = $comic["sale_date"];
+            $comic->type = $comic["type"];
+            $comic->save();
+        }
 }
 }
