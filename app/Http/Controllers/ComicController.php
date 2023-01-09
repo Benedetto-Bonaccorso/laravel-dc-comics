@@ -46,6 +46,19 @@ class ComicController extends Controller
         $newComic->type = $request["type"];
         $newComic->save();
         return to_route("comics.index");
+
+        /*
+        $newComic = new Comic();
+        $newComic->title = "prova";
+        $newComic->description = "prova";
+        $newComic->thumb = "prova";
+        $newComic->price = 1.1;
+        $newComic->series = "prova";
+        $newComic->sale_date = "prova";
+        $newComic->type = "prova";
+        $newComic->save();
+        return to_route("comics.index");
+        */
     }
 
     /**
