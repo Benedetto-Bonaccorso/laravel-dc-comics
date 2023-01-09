@@ -40,6 +40,7 @@
                         <td>
                             View 
                             <a href="{{route('comics.edit', $comic->id)}}">Edit</a>
+                            
                             <form action="{{route('comics.destroy', $comic->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -52,9 +53,6 @@
                 @endforeach
             </tbody>
         </table>
-        
     </div>
-    
-
 </body>
 </html>

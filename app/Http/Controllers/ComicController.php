@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLightSaberRequest;
+use App\Http\Requests\UpdateComicRequest;
+use App\Http\Requests\UpdateLightSaberRequest;
 
 class ComicController extends Controller
 {
@@ -15,7 +19,9 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        return view("admin.comics.index", compact("comics"));
+        $allowDeletion = false;
+        return view("admin.comics.index", compact("comics","allowDeletion"));
+        
     }
 
     /**
@@ -34,8 +40,10 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
+
+
         $newComic = new Comic();
         $newComic->title = $request["title"];
         $newComic->description = $request["description"];
@@ -90,7 +98,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
  
         $data = [
