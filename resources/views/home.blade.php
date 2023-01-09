@@ -11,7 +11,7 @@
 
     <div class="container">
         <div class="row">
-            <h1>{{$comics}}</h1>
+            <h1>Home</h1>
         </div>
     </div>
 
