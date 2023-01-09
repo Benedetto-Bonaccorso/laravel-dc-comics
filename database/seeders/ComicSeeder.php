@@ -15,9 +15,9 @@ class ComicSeeder extends Seeder{
      * @return void
      */
 
-    public function run(Faker $faker)
+    public function run()
     {
-        $comics=config('comicslist');
+        $comics=config('comics');
         foreach ($comics as $comic) {
             $comic = new Comic();
             $comic->title = $comic["title"];
