@@ -104,7 +104,7 @@ class ComicController extends Controller
         ];
 
         $comic->update($data);
-        
+
         return to_route('comics.index');
     }
 
@@ -114,8 +114,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return to_route('comics.index');
     }
 }
